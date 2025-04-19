@@ -3,7 +3,8 @@ import dotenv, { config } from 'dotenv'
 import cors from 'cors'
 
 import connectDB from './Database/dbConfig.js';
-import todoRouter from './Router/todo.Router.js'
+import todoRouter from './Router/todo.Router.js';
+import userRouter from './Router/user.Router.js';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 connectDB();
 
 app.use('/api/Todo',todoRouter)
+app.use('/api/user',userRouter)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
